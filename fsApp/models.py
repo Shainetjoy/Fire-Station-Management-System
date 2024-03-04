@@ -10,6 +10,6 @@ class User(AbstractUser):
 
 class Guest(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True,related_name='Guest')
-    Name =  models.CharField(max_length=20)
+    Name = models.CharField(max_length=20)
     Phone = models.CharField(max_length=10)
     Email = models.EmailField()
