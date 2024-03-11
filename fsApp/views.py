@@ -11,6 +11,14 @@ def fsSignIn(request):
 
 
 def fsSignUp(request):
-    UserReg =GuestRegister()
+    UserReg =UserRegister()
     GuestReg = GuestRegister()
     return render(request,'fsSignUp.html',{'UserReg':UserReg,"GuestReg":GuestReg})
+
+
+def fsAdminIndex(request):
+    return render(request,'fsAdminIndex.html')
+
+
+def fsGuestIndex(request):
+    return render(request,'fsGuestIndex.html')

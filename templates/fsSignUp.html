@@ -1,158 +1,40 @@
 <!DOCTYPE html>
-{% load static %}
-{% load crispy_forms_tags %}
 <html>
-
 <head>
-	<title>Registration Form</title>
-	<link rel="stylesheet"
-		href="style.css">
-    <style>
-        /* style.css */
-body {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-family: sans-serif;
-	line-height: 1.5;
-	min-height: 100vh;
-	background: #f3f3f3;
-	flex-direction: column;
-	margin: 0;
-}
-
-.main {
-	background-color: #fff;
-	border-radius: 15px;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-	padding: 10px 20px;
-	transition: transform 0.2s;
-	width: 500px;
-	text-align: center;
-}
-
-h1 {
-	color: #4CAF50;
-}
-
-label {
-	display: block;
-	width: 100%;
-	margin-top: 10px;
-	margin-bottom: 5px;
-	text-align: left;
-	color: #555;
-	font-weight: bold;
-}
-
-#pass {
-	color: red;
-	font-size: 12px;
-}
-
-input {
-	display: block;
-	width: 100%;
-	margin-bottom: 15px;
-	padding: 10px;
-	box-sizing: border-box;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-}
-
-select {
-	display: block;
-	width: 100%;
-	margin-bottom: 15px;
-	padding: 10px;
-	box-sizing: border-box;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-}
-
-button {
-	padding: 15px;
-	border-radius: 10px;
-	margin-top: 15px;
-	margin-bottom: 15px;
-	border: none;
-	color: white;
-	cursor: pointer;
-	background-color: #4CAF50;
-	width: 100%;
-	font-size: 16px;
-}
-
-.wrap {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-    </style>
+	<meta charset="utf-8">
+	<title>Form-v6 by Colorlib</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="css/nunito-font.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
-
-<body>
-<script>
-    // script.js
-
-function solve() {
-	let password =
-		document.getElementById('password').value;
-	let repassword =
-		document.getElementById('repassword').value;
-	let mobile =
-		document.getElementById('mobile').value;
-	let mail =
-		document.getElementById('email').value;
-	let flag = 1;
-	let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-	if (!emailRegex.test(mail)) {
-		flag = 0;
-		pass.innerText =
-			'Please enter a valid email address.';
-		setTimeout(() => {
-			pass.innerText = "";
-		}, 3000);
-	}
-
-	if (password !== repassword) {
-		flag = 0;
-		pass.innerText =
-			"Passwords do not match. Please re-enter.";
-		setTimeout(() => {
-			pass.innerText = "";
-		}, 3000);
-	}
-
-	let passwordRegex =
-		/^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$/;
-
-	if (!passwordRegex.test(password)) {
-		flag = 0;
-		pass.innerText =
-			'Password must be at least 8 characters'+
-			' long and include at least one number,'+
-			' one alphabet, and one symbol.';
-		setTimeout(() => {
-			pass.innerText = "";
-		}, 3000);
-	}
-	if (flag)
-		alert("Form submitted");
-}
-
-</script>
-	<div class="main">
-		<h1>GeeksforGeeks</h1>
-		<form action="">
-			{% csrf_token %}
-			{{UserReg|crispy}}
-			{{GuestReg|crispy}}
-		</form>
+<body class="form-v6">
+	<div class="page-content">
+		<div class="form-v6-content">
+			<div class="form-left">
+				<img src="images/form-v6.jpg" alt="form">
+			</div>
+			<form class="form-detail" action="#" method="post">
+				<h2>Register Form</h2>
+				<div class="form-row">
+					<input type="text" name="full-name" id="full-name" class="input-text" placeholder="Your Name" required>
+				</div>
+				<div class="form-row">
+					<input type="text" name="your-email" id="your-email" class="input-text" placeholder="Email Address" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+				</div>
+				<div class="form-row">
+					<input type="password" name="password" id="password" class="input-text" placeholder="Password" required>
+				</div>
+				<div class="form-row">
+					<input type="password" name="comfirm-password" id="comfirm-password" class="input-text" placeholder="Comfirm Password" required>
+				</div>
+				<div class="form-row-last">
+					<input type="submit" name="register" class="register" value="Register">
+				</div>
+			</form>
+		</div>
 	</div>
-	<script src="script.js"></script>
-</body>
-
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

@@ -6,14 +6,14 @@ from fsApp.models import Guest,User
 
 
 class UserRegister(UserCreationForm):
-    Username = forms.CharField()
-    Password = forms.CharField(label='password',widget=forms.PasswordInput)
-    Password2 = forms.CharField(label='password',widget=forms.PasswordInput)
+    username = forms.CharField()
+    password1 = forms.CharField(label='password',widget=forms.PasswordInput)
+    password2 = forms.CharField(label='password',widget=forms.PasswordInput)
 
 
     class Meta:
         model = User
-        fields = ('Username','Password','Password2')
+        fields = ('username','password1','password2')
 
 
 class GuestRegister(forms.ModelForm):
