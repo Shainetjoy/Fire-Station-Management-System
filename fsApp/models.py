@@ -3,7 +3,8 @@ from django.db import models
 
 # Create your models here.
 class User(AbstractUser):
-    is_user = models.BooleanField(default=True)
+    is_user = models.BooleanField(default=False)
+    is_Guest = models.BooleanField(default=False)
 
 
 
@@ -13,3 +14,8 @@ class Guest(models.Model):
     Name = models.CharField(max_length=20)
     Phone = models.CharField(max_length=10)
     Email = models.EmailField()
+
+    def __str__(self):
+        return self.Name
+
+

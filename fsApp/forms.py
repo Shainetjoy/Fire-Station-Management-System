@@ -8,7 +8,7 @@ from fsApp.models import Guest,User
 class UserRegister(UserCreationForm):
     username = forms.CharField()
     password1 = forms.CharField(label='password',widget=forms.PasswordInput)
-    password2 = forms.CharField(label='password',widget=forms.PasswordInput)
+    password2 = forms.CharField(label='conform password',widget=forms.PasswordInput)
 
 
     class Meta:

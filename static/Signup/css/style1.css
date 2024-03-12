@@ -30,7 +30,7 @@ body {
 	-webkit-border-radius: 8px;
 	margin: 180px 0;
 	font-family: 'Nunito', sans-serif;
-	color: #fff;
+	color:black;
 	font-weight: 700;
 	position: relative;
 	display: flex;
@@ -144,6 +144,7 @@ input:-moz-placeholder { /* Firefox 18- */
 	}
 	.form-v6-content .form-left {
 		width: 100%;
+		height: 100%;
 	}
 	.form-v6-content .form-left img {
 		width: 100%;
