@@ -57,6 +57,13 @@
             </ul>
           </div>
         </li>
+           </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'viewGuest' %}">
+            <i class="mdi mdi-view-headline menu-icon"></i>
+            <span class="menu-title">Guest</span>
+          </a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="pages/forms/basic_elements.html">
             <i class="mdi mdi-view-headline menu-icon"></i>
@@ -315,6 +322,7 @@
 <!--                            </div>-->
 <!--                            <p class="mb-">Total Usage</p>-->
 <!--                          </div>-->
+
 <!--                          <div class="item mr-3">-->
 <!--                            <div class="d-flex align-items-center">-->
 <!--                              <div class="color-bullet"></div>-->
@@ -336,6 +344,8 @@
 <!--                  </div>-->
 <!--                </div>-->
 <!--              </div>-->
+                {% block content %}
+                {% endblock %}
             </div>
           </div>
 

@@ -49,3 +49,6 @@ def fsAdminIndex(request):
 
 def fsGuestIndex(request):
     return render(request,'fsGuestIndex.html')
+
+
+
