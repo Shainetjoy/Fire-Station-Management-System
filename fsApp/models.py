@@ -18,4 +18,24 @@ class Guest(models.Model):
     def __str__(self):
         return self.Name
 
+IncidentType = (
+    ('Fire','Fire'),
+    ('Rescue','Rescue'),
+    ('Medical Emergency','Medical Emergency'))
+
+class incident(models.Model):
+    Incident_Name = models.CharField(max_length=100)
+    Incident_Type = models.CharField(max_length=100,choices=IncidentType)
+    Incident_Location = models.CharField(max_length=100)
+    Date_and_Time_of_Incident = models.DateTimeField()
+    Weather_Conditions = models.CharField(max_length=200)
+    Names_and_IDsof_Responding_Personnel =models.CharField(max_length=100)
+    Roles_and_Responsibilities_Assigned = models.CharField(max_length=200)
+    Injured_or_Affected_Individuals = models.CharField(max_length=100)
+    Equipment_Used = models.CharField(max_length=100)
+    images = models.ImageField(upload_to='IncidentImage/')
+
+    def __str__(self):
+        return self.Incident_Name
+
 

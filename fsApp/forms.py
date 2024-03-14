@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django import forms
 
-from fsApp.models import Guest,User
+from fsApp.models import Guest,User,incident
 
 
 class UserRegister(UserCreationForm):
@@ -20,3 +20,10 @@ class GuestRegister(forms.ModelForm):
     class Meta:
         model = Guest
         exclude = ("user",)
+
+
+class Incident_register(forms.ModelForm):
+    class Meta:
+        model = incident
+        fields = '__all__'
+

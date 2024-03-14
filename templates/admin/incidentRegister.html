@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'fsAdminIndex.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<form method="post">
+    {% csrf_token %}
+    {{incidentREgistrstionForm|crispy}}
+    <button type="submit">register</button>
+</form>
+
+
+{% endblock %}
