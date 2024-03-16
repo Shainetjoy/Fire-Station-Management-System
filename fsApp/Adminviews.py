@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from fsApp.models import Guest
+from fsApp.models import Guest,incident
 from .forms import Incident_register
 
 
@@ -19,14 +19,17 @@ def deleteGuest(request,user_id):
 def incidentReg(request):
     incidentREgistrstionForm = Incident_register()
     if request.method == 'POST':
-        incidentREgistrstionForm = Incident_register(request.POST)
+        incidentREgistrstionForm = Incident_register(request.POST,request.FILES)
+        print(incidentREgistrstionForm,"rrrrrrrrrrrrr")
         if incidentREgistrstionForm.is_valid():
             incidentREgistrstionForm.save()
             return redirect('fsAdminIndex')
-
     return render(request,'admin/incidentRegister.html',{'incidentREgistrstionForm':incidentREgistrstionForm})
 
 
 
 
+def viewIncident(request):
+    allIncident = incident.objects.all()
+    return render(request,'admin/viewIncident.html',{'allIncident':allIncident})
 

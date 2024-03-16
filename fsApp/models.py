@@ -27,7 +27,7 @@ class incident(models.Model):
     Incident_Name = models.CharField(max_length=100)
     Incident_Type = models.CharField(max_length=100,choices=IncidentType)
     Incident_Location = models.CharField(max_length=100)
-    Date_and_Time_of_Incident = models.DateTimeField()
+    Date_and_Time_of_Incident = models.DateField(auto_now=True)
     Weather_Conditions = models.CharField(max_length=200)
     Names_and_IDsof_Responding_Personnel =models.CharField(max_length=100)
     Roles_and_Responsibilities_Assigned = models.CharField(max_length=200)
