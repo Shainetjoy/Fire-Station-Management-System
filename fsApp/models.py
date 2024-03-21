@@ -39,3 +39,37 @@ class incident(models.Model):
         return self.Incident_Name
 
 
+
+class Persons(models.Model):
+    Name = models.CharField(max_length=100)
+    Email = models.CharField(max_length=100)
+    Phone_Number = models.CharField(max_length=10)
+    role = models.CharField(max_length=100)
+    certification = models.CharField(max_length=200)
+    department = models.CharField(max_length=100)
+    hire_date = models.DateField()
+    shift = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.Name
+
+
+class Addequipment(models.Model):
+
+    EquipmentID = models.CharField(max_length=100)
+    EquipmentName = models.CharField(max_length=100)
+    Equipment_Type = models.CharField(max_length=100)
+    Manufacturer = models.CharField(max_length=100)
+    Model = models.CharField(max_length=100)
+    Serial_Number = models.CharField(max_length=100)
+    Purchase_Date = models.DateField()
+    Last_Maintenance_Date = models.DateField()
+    Next_Maintenance_Due = models.DateField()
+    Maintenance_Schedule =models.DateField()
+    Maintenance_Status = models.CharField(max_length=100)
+    Next_Inspection_Date = models.DateField()
+    Compliance_Status = models.CharField(max_length=100)
+
+
+
+
