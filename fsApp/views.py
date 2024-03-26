@@ -2,6 +2,10 @@ from django.shortcuts import render,redirect
 from.forms import GuestRegister,UserRegister
 from django.contrib import messages,auth
 from django.contrib.auth import login, logout
+
+from .models import Guest
+
+
 # Create your views here.
 def index(request):
     return render(request,"fsIndex.html")
@@ -16,8 +20,9 @@ def fsSignIn(request):
             login(request,user)
             return redirect('fsAdminIndex')
         elif user is not None and user.is_Guest:
-            login(request,user)
-            return redirect('fsGuestIndex')
+            if user.Guest.approval_status == 1:
+                login(request,user)
+                return redirect('fsGuestIndex')
         else:
             messages.info(request,"You Are Not A Registered User ")
     return render(request,"fsSignIn.html")
@@ -48,7 +53,14 @@ def fsAdminIndex(request):
 
 
 def fsGuestIndex(request):
-    return render(request,'fsGuestIndex.html')
+    u = request.user.id
+    customer = Guest.objects.filter(user__id=u).values()
+    customer_name = customer[0]['Name']
+    print(customer_name, "><><><><><><><><><>>>><>>>>>>>")
+    return render(request,'fsGuestIndex.html',{"customer_name":customer_name})
 
 
 
+def log_out(request):
+    logout(request)
+    return redirect('fsIndex')

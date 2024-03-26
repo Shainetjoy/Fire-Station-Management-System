@@ -22,13 +22,15 @@ def incidentReg(request):
         print(incidentREgistrstionForm, "rrrrrrrrrrrrr")
         if incidentREgistrstionForm.is_valid():
             incidentREgistrstionForm.save()
-            return redirect('fsAdminIndex')
+            return redirect('viewIncident')
     return render(request, 'admin/incidentRegister.html', {'incidentREgistrstionForm': incidentREgistrstionForm})
 
 
 def viewIncident(request):
     allIncident = incident.objects.all()
     return render(request, 'admin/viewIncident.html', {'allIncident': allIncident})
+
+
 def deleteIncident(request,id):
     data = incident.objects.get(id=id)
     data.delete()
@@ -134,6 +136,15 @@ def UpdateEquipments(request ,id):
             return redirect('viewEquipment')
     return render(request,"admin/updateEqupment.html",{'addEqupmentForm':addEqupmentForm})
 
+
+
+
+def approveGuest(request,id):
+    guest = Guest.objects.get(user_id = id)
+    guest.approval_status = 1
+    guest.save()
+    messages.info(request,"Guest approved successfully")
+    return redirect("viewGuest")
 
 
 

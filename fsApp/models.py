@@ -14,6 +14,7 @@ class Guest(models.Model):
     Name = models.CharField(max_length=20)
     Phone = models.CharField(max_length=10)
     Email = models.EmailField()
+    approval_status =models.IntegerField(default=0)
 
     def __str__(self):
         return self.Name

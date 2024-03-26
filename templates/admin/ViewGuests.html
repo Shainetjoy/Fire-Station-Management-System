@@ -8,6 +8,8 @@
         <th>Name</th>
         <th>Phone</th>
         <th>Email</th>
+        <th>Approve</th>
+        <th>Action</th>
         </thead>
     </tr>
     <tr>
@@ -16,6 +18,15 @@
         <td>{{i.Name}}</td>
         <td>{{i.Phone}}</td>
         <td>{{i.Email}}</td>
+        <td>
+            {% if i.approval_status == 0 %}
+            <a href="{% url 'approveGuest' i.user_id %}"class="btn btn-primary">Approve</a>
+            {% elif i.approval_status == 1 %}
+            <button class="btn btn-success">Approved</button>
+            {% else %}
+            <button class="btn btn-primary">Reject</button>
+            {% endif %}
+        </td>
         <td> <a href="{% url 'deleteGuest' i.user_id %}">Delete</a> </td>
     </tr>
     {% endfor %}

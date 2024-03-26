@@ -21,7 +21,7 @@ class UserRegister(UserCreationForm):
 class GuestRegister(forms.ModelForm):
     class Meta:
         model = Guest
-        exclude = ("user",)
+        exclude = ("user","approval_status")
 
 
 class Incident_register(forms.ModelForm):

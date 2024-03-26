@@ -11,14 +11,14 @@
                 <th>Type of Incident</th>
                 <th>Location</th>
                 <th>Date</th>
-
-                <th>Names of Responding Personnel</th>
+                <th>Names of Responding </th>
                 <th>Responsibilities</th>
                 <th>Images</th>
 
             </tr>
         </thead>
         <tbody>
+
             {% for i in allIncident %}
             <tr>
                 <td>{{ i.Incident_Name }}</td>
@@ -27,12 +27,13 @@
                 <td>{{ i.Date_and_Time_of_Incident }}</td>
                 <td>{{ i.Names_and_IDsof_Responding_Personnel }}</td>
                 <td>{{ i.Roles_and_Responsibilities_Assigned }}</td>
-                <td><img src="{{ i.photo.url }}"></td>
+                <td><img src="{{ i.images.url }}" height="100px"></td>
                 <td><a href="{% url 'deleteIncident' i.id %}">Delete</a></td>
                 <td><a href="{% url 'updateIncident' i.id %}">Update</a></td>
             </tr>
             {% endfor %}
         </tbody>
+
     </table>
 </div>
 

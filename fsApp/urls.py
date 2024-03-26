@@ -5,6 +5,7 @@ urlpatterns = [
 path('',views.index,name='fsIndex'),
 path('fsSignIn',views.fsSignIn,name='fsSignIn'),
 path('fsSignUp',views.fsSignUp,name='fsSignUp'),
+path('log_out',views.log_out,name='log_out'),
 path('fsAdminIndex',views.fsAdminIndex,name='fsAdminIndex'),
 path('fsGuestIndex',views.fsGuestIndex,name='fsGuestIndex'),
 path('viewGuest',Adminviews.viewGuest,name='viewGuest'),
@@ -28,6 +29,7 @@ path('Addequipment',Adminviews.AddequipmentFun,name='Addequipment'),
 path('viewEquipment',Adminviews.viewEquipment,name='viewEquipment'),
 path('UpdateEquipments/<int:id>/',Adminviews.UpdateEquipments,name='UpdateEquipments'),
 path('guestviewIncident',GuestView.guestviewIncident,name='guestviewIncident'),
+path('approveGuest/<int:id>',Adminviews.approveGuest,name='approveGuest'),
 
 
 ]

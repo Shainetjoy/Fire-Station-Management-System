@@ -17,6 +17,7 @@
                 <th>Affected Individuals</th>
                 <th>Equipment</th>
                 <th>Images</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -31,8 +32,7 @@
                 <td>{{ i.Roles_and_Responsibilities_Assigned }}</td>
                 <td>{{ i.Injured_or_Affected_Individuals }}</td>
                 <td>{{ i.Equipment_Used }}</td>
-                <td>{{ i.images }}</td>
-                <td><img src="{{ i.photo.url }}"></td>
+                <td><img src="{{ i.images.url }}" alt="{{ i.images.url }}"></td>
                 <td><a href="{% url 'deleteIncident' i.id %}">Delete</a></td>
                 <td><a href="{% url 'updateIncident' i.id %}">Update</a></td>
             </tr>
